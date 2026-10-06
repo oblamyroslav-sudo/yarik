@@ -1,0 +1,156 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090f;--ink:#f4f6fb;--mute:#8b93a7;--lime:#c6ff3d;--hot:#ff4d6d;--cyan:#3de0ff;--card:#121726;--line:#232a3d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:Inter,system-ui,sans-serif;color:var(--ink)}
+.ad{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--bg);display:none}
+.ad.on{display:block}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:54px 54px;opacity:.35;mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+.glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.55}
+.mono{font-family:"JetBrains Mono",monospace}
+.disp{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.04em}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:12px 22px;border-radius:999px;border:1px solid #2c3550;background:#0d1220cc;font:700 22px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--hot);box-shadow:0 0 0 6px #ff4d6d33,0 0 24px var(--hot)}
+.lime{color:var(--lime)} .hot{color:var(--hot)} .cyan{color:var(--cyan)}
+
+/* ---------- AD 1: phone ---------- */
+#a1 h1{position:absolute;left:72px;top:150px;width:980px;font-size:86px;line-height:.95;font-weight:700}
+#a1 .sub{position:absolute;left:72px;top:345px;font-size:30px;color:var(--mute);width:900px;line-height:1.35}
+.phone{position:absolute;left:50%;top:500px;transform:translateX(-50%) rotate(-4deg);width:560px;height:1060px;border-radius:78px;background:linear-gradient(160deg,#2a3147,#0b0e17);padding:16px;box-shadow:0 60px 120px #000c,0 0 0 2px #39415a,0 0 120px #c6ff3d22}
+.screen{width:100%;height:100%;border-radius:64px;overflow:hidden;position:relative;background:radial-gradient(circle at 30% 10%,#2b1d5c,transparent 55%),radial-gradient(circle at 90% 60%,#0f4b5c,transparent 50%),#0a0c16;padding:34px 26px}
+.island{width:150px;height:40px;border-radius:30px;background:#000;margin:0 auto 26px}
+.time{text-align:center;font:600 120px "Space Grotesk";letter-spacing:-.03em;line-height:1}
+.date{text-align:center;font-size:24px;color:#c9cfe0;margin:8px 0 34px}
+.notif{background:#1b2134ee;border:1px solid #ffffff14;border-radius:30px;padding:22px 24px;margin-bottom:16px;backdrop-filter:blur(10px)}
+.notif.main{border:1.5px solid var(--lime);box-shadow:0 0 0 6px #c6ff3d18,0 20px 50px #0008}
+.nh{display:flex;align-items:center;gap:12px;font-size:19px;color:#aab2c8;margin-bottom:10px}
+.ic{width:38px;height:38px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px}
+.nh b{color:#fff;font-weight:700;flex:1}
+.nt{font-size:23px;font-weight:700;margin-bottom:6px}
+.nb{font-size:20px;line-height:1.4;color:#d4d9e8}
+.score{display:flex;align-items:center;gap:14px;margin:14px 0 12px}
+.bar{flex:1;height:12px;border-radius:9px;background:#2a3147;overflow:hidden}
+.bar i{display:block;height:100%;width:94%;background:linear-gradient(90deg,var(--cyan),var(--lime))}
+.script{font-size:19px;background:#0c101c;border-radius:14px;padding:12px 14px;color:#e8ecf6;border-left:4px solid var(--lime);font-style:italic}
+.btns{display:flex;gap:10px;margin-top:14px}
+.btns span{flex:1;text-align:center;padding:12px;border-radius:14px;font-weight:800;font-size:19px}
+.call{background:var(--lime);color:#0a0c16}.txt{background:#2a3147}
+.timer{position:absolute;right:56px;top:640px;transform:rotate(6deg);background:var(--hot);color:#fff;padding:18px 26px;border-radius:22px;font:700 26px "JetBrains Mono";box-shadow:0 20px 40px #ff4d6d55;text-align:center;line-height:1.2}
+.timer big{display:block;font-size:54px}
+
+/* ---------- AD 2: stats ---------- */
+#a2 .top{position:absolute;left:72px;top:96px}
+#a2 h1{position:absolute;left:72px;top:190px;font-size:88px;line-height:.98;font-weight:700;width:940px}
+.hero{position:absolute;left:60px;top:430px;font:700 330px/0.85 "Space Grotesk";letter-spacing:-.07em;background:linear-gradient(180deg,#e9ffb0,var(--lime) 55%,#6f9f00);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 60px #c6ff3d40)}
+.hero-l{position:absolute;left:76px;top:730px;font-size:32px;color:#d6dbea;width:900px}
+.hero-l b{color:#fff}
+.race{position:absolute;left:72px;right:72px;top:800px}
+.row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:22px;margin-bottom:16px}
+.row .lab{font:700 30px "JetBrains Mono";color:var(--mute)}
+.track{height:64px;border-radius:16px;background:#121726;border:1px solid var(--line);position:relative;overflow:hidden}
+.fill{position:absolute;inset:0 auto 0 0;border-radius:15px;display:flex;align-items:center;justify-content:flex-end;padding-right:22px;font:800 26px Inter;color:#0a0c16}
+.f1{width:100%;background:linear-gradient(90deg,#4f7a00,var(--lime));box-shadow:0 0 40px #c6ff3d55}
+.f2{width:46%;background:linear-gradient(90deg,#1b5f70,var(--cyan))}
+.f3{width:4%;background:var(--hot);padding:0}
+.row.r3 .track:after{content:"→ 100× less likely to reach them";position:absolute;left:70px;top:50%;transform:translateY(-50%);font:700 24px Inter;color:var(--hot)}
+.chips{position:absolute;left:72px;right:72px;bottom:56px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px 30px}
+.chip .n{font:700 84px/1 "Space Grotesk";letter-spacing:-.04em}
+.chip .t{font-size:24px;color:#c3c9da;margin-top:10px;line-height:1.3}
+
+/* ---------- AD 3: flow + offer ---------- */
+#a3 .top{position:absolute;left:72px;top:90px}
+#a3 h1{position:absolute;left:72px;top:170px;font-size:84px;line-height:.96;font-weight:700;width:960px}
+.flow{position:absolute;left:72px;right:72px;top:410px}
+.step{display:grid;grid-template-columns:76px 1fr auto;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px 28px;margin-bottom:0;position:relative}
+.step+.conn{height:20px;margin-left:66px;border-left:3px dashed #3a4566}
+.step .em{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;font-size:40px;background:#1c2338}
+.step h3{font-size:31px;font-weight:800}
+.step p{font-size:21px;color:var(--mute);margin-top:4px}
+.step .ts{font:700 24px "JetBrains Mono";color:var(--lime)}
+.step.win{border-color:var(--lime);box-shadow:0 0 0 6px #c6ff3d14,0 0 60px #c6ff3d22}
+.step.win .em{background:var(--lime)}
+.offer{position:absolute;left:72px;right:72px;bottom:72px;border-radius:36px;padding:38px 44px;background:linear-gradient(120deg,var(--lime),#8cff7a);color:#0a0c16;display:flex;align-items:center;justify-content:space-between}
+.offer .big{font:700 92px/0.9 "Space Grotesk";letter-spacing:-.05em}
+.offer .sm{max-width:560px;font-size:24px;font-weight:700;margin-top:10px}
+.slots{display:flex;gap:14px}
+.slots i{width:70px;height:70px;border-radius:20px;border:4px solid #0a0c16;display:grid;place-items:center;font:800 30px Inter;font-style:normal}
+.slots i.f{background:#0a0c16;color:var(--lime)}
+.cmt{position:absolute;left:0;right:0;justify-content:center;bottom:300px;font:700 28px "JetBrains Mono";color:#fff;display:flex;align-items:center;gap:14px}
+.cmt span{background:#1c2338;border:1px solid #39415a;padding:10px 18px;border-radius:14px;color:var(--lime)}
+</style></head><body>
+
+<!-- AD 1 -->
+<section class="ad" id="a1">
+  <div class="grid"></div>
+  <div class="glow" style="width:700px;height:700px;background:#6c3dff;left:-200px;top:-200px"></div>
+  <div class="glow" style="width:600px;height:600px;background:#c6ff3d;right:-260px;bottom:120px;opacity:.25"></div>
+  <div class="pill" style="position:absolute;left:72px;top:72px"><span class="dot"></span>Live lead alert</div>
+  <h1 class="disp">New lead?<br>Your phone knows <span class="lime">first.</span></h1>
+  <p class="sub">Scored, scripted &amp; texted to you in seconds — so you call before anyone else does.</p>
+  <div class="timer">FORM → TEXT<big>0:04</big>seconds</div>
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="time">9:41</div>
+    <div class="date">Tuesday, October 6</div>
+    <div class="notif main">
+      <div class="nh"><div class="ic">⚡</div><b>SALES APP</b>now</div>
+      <div class="nt">🔥 HOT LEAD — Sarah M.</div>
+      <div class="nb">Kitchen remodel · Budget $40–60k · Wants to start this month</div>
+      <div class="score"><span class="mono" style="font-size:19px;color:#aab2c8">SCORE</span><div class="bar"><i></i></div><span class="mono lime" style="font-size:26px;font-weight:700">94</span></div>
+      <div class="script">“Hi Sarah! Saw you want to start this month — I have 2 slots open next week. Can I ask you 3 quick questions?”</div>
+      <div class="btns"><span class="call">📞 Call now</span><span class="txt">💬 Text</span></div>
+    </div>
+    <div class="notif" style="opacity:.55">
+      <div class="nh"><div class="ic" style="background:#3de0ff">⚡</div><b>SALES APP</b>2m ago</div>
+      <div class="nt">✅ Mike R. — booked a call</div>
+    </div>
+  </div></div>
+</section>
+
+<!-- AD 2 -->
+<section class="ad" id="a2">
+  <div class="grid"></div>
+  <div class="glow" style="width:800px;height:800px;background:#c6ff3d;left:-300px;top:200px;opacity:.18"></div>
+  <div class="glow" style="width:600px;height:600px;background:#ff4d6d;right:-300px;bottom:-200px;opacity:.3"></div>
+  <div class="pill top"><span class="dot"></span>Speed to lead</div>
+  <h1 class="disp">Speed isn't a feature.<br>It's the whole <span class="lime">game.</span></h1>
+  <div class="hero">+391%</div>
+  <div class="hero-l">more conversions when you respond <b>within 1 minute</b></div>
+  <div class="race">
+    <div class="row"><div class="lab lime">1 min</div><div class="track"><div class="fill f1">YOU (with the app) 🏆</div></div></div>
+    <div class="row"><div class="lab">5 min</div><div class="track"><div class="fill f2">still in the race</div></div></div>
+    <div class="row r3"><div class="lab hot">30 min</div><div class="track"><div class="fill f3"></div></div></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><div class="n lime">78%</div><div class="t">of people buy from the <b style="color:#fff">first</b> business to respond</div></div>
+    <div class="chip"><div class="n cyan">100×</div><div class="t">more likely to reach a lead at 5 min vs. 30 min</div></div>
+  </div>
+</section>
+
+<!-- AD 3 -->
+<section class="ad" id="a3">
+  <div class="grid"></div>
+  <div class="glow" style="width:700px;height:700px;background:#3de0ff;right:-250px;top:-150px;opacity:.3"></div>
+  <div class="glow" style="width:700px;height:700px;background:#6c3dff;left:-300px;top:600px;opacity:.35"></div>
+  <div class="pill top"><span class="dot"></span>How it works</div>
+  <h1 class="disp">Lead comes in.<br>You're <span class="lime">already dialing.</span></h1>
+  <div class="flow">
+    <div class="step"><div class="em">📥</div><div><h3>Lead fills out your form</h3><p>Website, Facebook, Instagram, anywhere</p></div><div class="ts">0:00</div></div>
+    <div class="conn"></div>
+    <div class="step"><div class="em">🧠</div><div><h3>AI scores it 0–100</h3><p>Budget, urgency, fit — instantly ranked</p></div><div class="ts">0:02</div></div>
+    <div class="conn"></div>
+    <div class="step"><div class="em">📝</div><div><h3>Writes your sales script</h3><p>Personalized to what <i>they</i> told you</p></div><div class="ts">0:03</div></div>
+    <div class="conn"></div>
+    <div class="step win"><div class="em">📲</div><div><h3>Texts it to your phone</h3><p>Call, Zoom or text — close them first</p></div><div class="ts">0:04</div></div>
+  </div>
+  <div class="offer">
+    <div><div class="big">Built FREE<br>for you.</div><div class="sm">Only 3 spots · No catch · Just a testimonial if you love it</div></div>
+    <div style="text-align:center"><div class="slots"><i>1</i><i>2</i><i>3</i></div><div style="margin-top:18px;background:#0a0c16;color:var(--lime);font:700 22px 'JetBrains Mono';padding:12px 16px;border-radius:14px">💬 COMMENT “I'M IN”</div></div>
+  </div>
+</section>
+
+<script>const id=(location.hash||'#a1').slice(1);document.getElementById(id).classList.add('on')</script>
+</body></html>
